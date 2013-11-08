@@ -1,7 +1,34 @@
-@(message: String)
+@(message: String, order: Order)
 
-@main("Welcome to Play") {
+@main("IPSpresso") {
 
-    @play20.welcome(message)
-
+	<div class="jumbotron">
+		<h1>@message</h1>
+        <p>The IPSWAYS play framework meetup demo application. => messages</p>
+	</div>
+	<table class="table table-striped">
+		<thead>
+		<tr>
+			<th>User</th>
+			@for(coffee <- order.availableCoffees) { 
+				<th>@coffee.name</th>
+			}
+		</tr>
+		</thead>
+		<tbody>
+			@for(userOrder <- order.userOrders) {
+				<tr>
+					<td>@userOrder.user</td>
+					@for(coffee <- order.availableCoffees) { 
+						<td>
+							@userOrder.userOrderItems.find(_.coffee.name == coffee.name) match {
+								case Some(o) => { @o.amount }
+								case None => { 0 }
+							}
+						</td>
+					}
+				</tr>	
+			}
+		</tbody>
+	</table>
 }

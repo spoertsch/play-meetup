@@ -1,17 +1,21 @@
-@(message: String, order: Order)
+@(message: String, order: Order)(implicit lang: Lang)
+
+@import views.helper.ViewHelper._
 
 @main("IPSpresso") {
 
 	<div class="jumbotron">
 		<h1>@message</h1>
         <p>The IPSWAYS play framework meetup demo application. => messages</p>
+        <p>Due Date: @formatJodaDateTime(order.dueDate, Messages("date.format"))</p>
 	</div>
+	<div class="table-responsive">
 	<table class="table table-striped">
 		<thead>
 		<tr>
 			<th>User</th>
 			@for(coffee <- order.availableCoffees) { 
-				<th>@coffee.name</th>
+				<th class="rotate" style="padding-bottom: 50px;">@coffee.name</th>
 			}
 		</tr>
 		</thead>
@@ -31,4 +35,5 @@
 			}
 		</tbody>
 	</table>
+	</div>
 }

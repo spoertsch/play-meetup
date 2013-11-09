@@ -14,5 +14,9 @@ object Coffee {
     Coffee("Lungo 7"),
     Coffee("Lungo 8"),
     Coffee("Lungo 9"),
-    Coffee("Lungo 10"))
+    Coffee("Lungo 10"),
+    Coffee("Lungo 11"),
+    Coffee("Lungo 12"),
+    Coffee("Lungo 13"),
+    Coffee("Lungo 14"))
 }

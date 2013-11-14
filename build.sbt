@@ -1,3 +1,5 @@
+import play.Project._
+
 name := "play-meetup"
 
 version := "1.0-SNAPSHOT"
@@ -9,3 +11,4 @@ libraryDependencies ++= Seq(
 
 playScalaSettings
 
+atmosPlaySettings
